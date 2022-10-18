@@ -9,9 +9,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:padding="15dp">
+        android:orientation="vertical"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- tittle -->
         <TextView
@@ -31,7 +35,8 @@
             android:ems="10"
             android:hint="Product Name"
             android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <!-- Description -->
         <EditText
@@ -41,7 +46,8 @@
             android:ems="10"
             android:hint="Product Description"
             android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            tools:ignore="TextContrastCheck,TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <!-- Existing -->
         <EditText
@@ -51,7 +57,8 @@
             android:ems="10"
             android:hint="Existing Products"
             android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TextContrastCheck,TextContrastCheck" />
 
         <!-- Cost Price -->
         <EditText
@@ -61,7 +68,8 @@
             android:ems="10"
             android:hint="Cost Price"
             android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            tools:ignore="TextContrastCheck,TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <!-- Sale Price -->
         <EditText
@@ -71,7 +79,8 @@
             android:ems="10"
             android:hint="Sale Price"
             android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            tools:ignore="TextContrastCheck,TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <!-- Photography URL -->
         <EditText
@@ -81,12 +90,13 @@
             android:ems="10"
             android:hint="Photography URL"
             android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TextContrastCheck,TextContrastCheck" />
 
         <!-- Submit the product -->
         <Button
             android:id="@+id/btnConfirm"
-            android:layout_width="wrap_content"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#8DEF84"
             android:text="confirm"
@@ -95,20 +105,22 @@
         <!-- Cancel adding -->
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
+            android:layout_width="209dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF7B7B"
             android:text="cancel"
-            android:textColor="#A10E0E" />
+            android:textColor="#A10E0E"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
 
         <!-- TEST/ delete after -->
         <Button
             android:id="@+id/btnRead"
-            android:layout_width="wrap_content"
+            android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF7B7B"
             android:text="read by name"
-            android:textColor="#A10E0E" />
+            android:textColor="#A10E0E"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     </LinearLayout>
 
