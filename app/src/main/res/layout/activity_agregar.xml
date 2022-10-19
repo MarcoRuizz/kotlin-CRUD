@@ -95,7 +95,7 @@
 
         <!-- Submit the product -->
         <Button
-            android:id="@+id/btnConfirm"
+            android:id="@+id/btnSave"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:backgroundTint="#8DEF84"
@@ -121,6 +121,13 @@
             android:text="read by name"
             android:textColor="#A10E0E"
             tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnBuscarProducto"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
+            android:text="SEARCH PRODUCT" />
 
     </LinearLayout>
 
