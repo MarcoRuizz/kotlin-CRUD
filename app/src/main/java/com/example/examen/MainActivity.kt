@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         //salta a la activity EditarActivity
         btnEdit.setOnClickListener {
-            val intento2 = Intent(this, agregar::class.java)
+            val intento2 = Intent(this, EditarActivity::class.java)
             startActivity(intento2)
         }
     }
