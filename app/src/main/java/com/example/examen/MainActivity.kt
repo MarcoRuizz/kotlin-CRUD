@@ -1,11 +1,8 @@
 package com.example.examen
 
-import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_agregar.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         // add activity
         btnAdd.setOnClickListener {
-            val intento1 = Intent(this, agregar::class.java)
+            val intento1 = Intent(this, Agregar::class.java)
             startActivity(intento1)
         }
 
