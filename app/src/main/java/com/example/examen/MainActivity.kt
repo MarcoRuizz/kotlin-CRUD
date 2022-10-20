@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         // add activity
         btnAdd.setOnClickListener {
-            val intento1 = Intent(this, agregar::class.java)
+            val intento1 = Intent(this, Agregar::class.java)
             startActivity(intento1)
         }
 

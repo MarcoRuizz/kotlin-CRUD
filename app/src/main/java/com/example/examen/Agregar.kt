@@ -7,8 +7,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_agregar.*
 import kotlinx.android.synthetic.main.activity_agregar.btnReadName
 
-
-class agregar : AppCompatActivity() {
+class Agregar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar)
@@ -16,7 +15,7 @@ class agregar : AppCompatActivity() {
         // upload the db and finish the activity
         btnConfirmar.setOnClickListener{
             // db adding
-            val admin = AdminSQLiteOpenHelper(this,"administracion", null, 1)
+            val admin = AdminSQLiteOpenHelper(this,"products", null, 1)
             val bd = admin.writableDatabase
             val registro = ContentValues()
             registro.put("nombre", txtName.getText().toString())
@@ -25,6 +24,8 @@ class agregar : AppCompatActivity() {
             registro.put("precioCosto", txtCost.getText().toString())
             registro.put("precioVenta", txtSale.getText().toString())
             registro.put("url", txtUrl.getText().toString())
+            println("registro")
+            println(registro)
             bd.insert("productos", null, registro)
             bd.close()
 
@@ -50,9 +51,14 @@ class agregar : AppCompatActivity() {
         btnReadName.setOnClickListener{
 
             // read by name
-            val admin = AdminSQLiteOpenHelper(this, "administracion", null, 1)
+            val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
             val bd = admin.writableDatabase
-            val fila = bd.rawQuery("select descripcion,existentes,precioCosto,precioVenta,url from productos where nombre=${txtName.text.toString()}", null)
+            println("bd")
+            println(bd)
+            val fila = bd.rawQuery("select id,descripcion,existentes,precioCosto,precioVenta,url from productos where nombre = ${txtName.text.toString()}", null)
+            println("fila")
+            println(fila)
+
             if (fila.moveToFirst()) {
                 txtDescription.setText(fila.getString(0))
                 txtExisting.setText(fila.getString(1))
