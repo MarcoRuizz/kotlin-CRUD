@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="btnAgregar" type="id" />
-    <item name="btnReturn" type="id" />
+    <item name="btnSearch" type="id" />
+    <item name="btnChange" type="id" />
 </resources>
