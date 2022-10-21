@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context=".entidades.MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
@@ -32,8 +32,11 @@
     <LinearLayout
         android:layout_width="403dp"
         android:layout_height="616dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline15">
 
@@ -47,6 +50,7 @@
         android:id="@+id/imageView5"
         android:layout_width="76dp"
         android:layout_height="0dp"
+        android:layout_marginStart="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +61,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:text="Sam's Club"
         android:textAlignment="center"
@@ -73,14 +78,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="365dp" />
+        app:layout_constraintGuide_begin="348dp" />
 
     <ImageButton
         android:id="@+id/btnAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#56674C"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="#FDFDFD"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
@@ -108,5 +113,4 @@
         app:layout_constraintStart_toStartOf="@+id/guideline16"
         app:layout_constraintTop_toTopOf="@+id/btnEdit"
         app:srcCompat="@android:drawable/btn_dialog" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

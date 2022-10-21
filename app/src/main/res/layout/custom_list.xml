@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#FFFFFF">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:gravity="center"
-        tools:ignore="MissingConstraints">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="32dp">
+
         <ImageView
-            android:id="@+id/icon"
+            android:id="@+id/imageID"
             android:layout_width="50dp"
             android:layout_height="80dp"
             app:srcCompat="@drawable/user" />
@@ -24,24 +29,64 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="title"
-                android:textStyle="bold"
-                android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+                android:layout_marginLeft="15dp"
+                android:text="Nombre"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#050505"
+                android:textColorHint="#0B0A0A"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="description"
-                android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
-                android:textSize="16sp"/>
+                android:text="Descripcion"
+                android:textColor="#090909"
+                android:textColorHint="#050505"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/existencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:text="En existencia"
+                android:textColor="#090909"
+                android:textColorHint="#050505"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/costoProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:text="Costo"
+                android:textColor="#090909"
+                android:textColorHint="#050505"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/venta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:text="Venta"
+                android:textColor="#090909"
+                android:textColorHint="#050505"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
