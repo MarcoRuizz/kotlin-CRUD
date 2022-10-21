@@ -23,9 +23,26 @@ class MainActivity : AppCompatActivity() {
         // get data base
         val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
         val bd = admin.writableDatabase
+        println("bd")
+        println(bd)
         val fila = bd.rawQuery("select nombre, descripcion, existentes, precioCosto, precioVenta, url from productos", null)
         println("FILA:")
         println(fila)
+
+        // print how many registers on our db
+        val countRegister = bd.rawQuery("select count(id) from productos", null)
+        if (countRegister.moveToFirst()){
+            println("regisros")
+            println(countRegister.getString(0))
+        }
+        val counter = countRegister.getString(0).toInt()
+
+        // print all registers
+        var i = 1;
+        while(i <= counter){
+            println("Registro ${i}")
+            i++;
+        }
 
         if(fila.moveToFirst()){
             println(fila.getString(0))
@@ -64,6 +81,8 @@ class MainActivity : AppCompatActivity() {
         // print database listview
         val myListAdapter = Adapter(this, nombre,descripcion, existencia, costoProducto, venta, imageID)
         listView.adapter = myListAdapter
+
+        // listview on click event, send to another activity and send the id parameter
         listView.setOnItemClickListener(){adapterView, view, position, id ->
             val itemAtPos = adapterView.getItemAtPosition(position)
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
@@ -89,13 +108,13 @@ class MainActivity : AppCompatActivity() {
 
         // ACTIVITIES
 
-        // add activity
+        // add acivitiy
         btnAdd.setOnClickListener {
             val intento1 = Intent(this, Agregar::class.java)
             startActivity(intento1)
         }
 
-        //salta a la activity EditarActivity
+        // edit activity
         btnEdit.setOnClickListener {
             val intento2 = Intent(this, EditarActivity::class.java)
             startActivity(intento2)
