@@ -8,12 +8,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 // create arrays
-val nombre = arrayOf<String>()
-val descripcion = arrayOf<String>()
-val existencia = arrayOf<Int>()
-val costoProducto = arrayOf<Float>()
-val venta = arrayOf<Float>()
-val imageID = arrayOf<String>()
+var nombre = arrayOf<String>()
+var descripcion = arrayOf<String>()
+var existencia = arrayOf<Int>()
+var costoProducto = arrayOf<Float>()
+var venta = arrayOf<Float>()
+var imageID = arrayOf<String>()
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,18 +32,42 @@ class MainActivity : AppCompatActivity() {
         // print how many registers on our db
         val countRegister = bd.rawQuery("select count(id) from productos", null)
         if (countRegister.moveToFirst()){
-            println("regisros")
-            println(countRegister.getString(0))
+            println()
+            println("${countRegister.getString(0)} registros")
         }
         val counter = countRegister.getString(0).toInt()
 
-        // print all registers
+        // save all registers
         var i = 1;
         while(i <= counter){
-            println("Registro ${i}")
-            i++;
+
+            // names
+            val saveNames = bd.rawQuery("select nombre, descripcion, existentes, precioCosto, precioVenta, url from productos where id =' ${i}'", null)
+            if(saveNames.moveToFirst()){
+
+                // debug
+                println("Registro ${i}")
+                println(saveNames.getString(0))
+                println(saveNames.getString(1))
+                println(saveNames.getInt(2))
+                println(saveNames.getFloat(3))
+                println(saveNames.getFloat(4))
+                println(saveNames.getString(5))
+
+                // add to array
+                nombre += (saveNames.getString(0))
+                descripcion += (saveNames.getString(1))
+                existencia += (saveNames.getInt(2))
+                costoProducto += (saveNames.getFloat(3))
+                venta += (saveNames.getFloat(4))
+                imageID += (saveNames.getString(5))
+
+            }
+
+            i++
         }
 
+        /*
         if(fila.moveToFirst()){
             println(fila.getString(0))
             println(fila.getString(1))
@@ -59,6 +83,8 @@ class MainActivity : AppCompatActivity() {
             venta.plusElement(fila.getFloat(4))
             imageID.plusElement(fila.getString(5))
         }
+         */
+
         bd.close()
         println("ARRAYS DATA:")
         println(Arrays.toString(nombre))
@@ -67,16 +93,6 @@ class MainActivity : AppCompatActivity() {
         println(Arrays.toString(costoProducto))
         println(Arrays.toString(venta))
         println(Arrays.toString(imageID))
-
-        /*
-        // save all the db data on arrays
-        val data = bd.rawQuery("select * from productos", null);
-        while(data.moveToNext()){
-            val uname = data.getInt(data.getInt(id));
-            productoId.plus(uname); // plusElement ???
-        }
-        bd.close() // delete dbclose of line 35 if used
-         */
 
         // print database listview
         val myListAdapter = Adapter(this, nombre,descripcion, existencia, costoProducto, venta, imageID)
