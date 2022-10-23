@@ -20,7 +20,7 @@
             android:id="@+id/imageID"
             android:layout_width="50dp"
             android:layout_height="80dp"
-            app:srcCompat="@drawable/user" />
+            app:srcCompat="@drawable/sams_splash" />
 
         <LinearLayout
             android:layout_width="match_parent"
