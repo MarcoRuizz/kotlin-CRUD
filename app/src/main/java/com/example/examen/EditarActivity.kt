@@ -20,6 +20,25 @@ class EditarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar)
 
+        /*
+        // delete database register
+        btnDelete.setOnClickListener{
+            val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
+            val bd = admin.writableDatabase
+
+            /*
+            // get clicked id
+            val itemIdAtPos = adapterView.getItemIdAtPosition(position)
+            val cant = bd.delete("productos", "codigo=${itemIdAtPos}", null)
+            bd.close()
+            if (cant == 1)
+                Toast.makeText(this, "Se borró el artículo con dicho código", Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(this, "No existe un artículo con dicho código", Toast.LENGTH_SHORT).show()
+            */
+        }
+        */
+
         btnSearch.setOnClickListener{
 
             // read by name
@@ -94,8 +113,7 @@ class EditarActivity : AppCompatActivity() {
             }
         }
 
-
-        //regresa a la activity principal
+        // cancel the edit
         btnReturn.setOnClickListener {
             val intento4 = Intent(this, MainActivity::class.java)
             startActivity(intento4)

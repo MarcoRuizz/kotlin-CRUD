@@ -82,26 +82,11 @@ class MainActivity : AppCompatActivity() {
 
         // listview on click event, send to another activity and send the id parameter
         listView.setOnItemClickListener(){adapterView, view, position, id ->
-            val itemAtPos = adapterView.getItemAtPosition(position)
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
-            Toast.makeText(this, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
-        }
 
-        // delete database register
-        btnDelete.setOnClickListener{
-            val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
-            val bd = admin.writableDatabase
-
-            /*
-            // get clicked id
-            val itemIdAtPos = adapterView.getItemIdAtPosition(position)
-            val cant = bd.delete("productos", "codigo=${itemIdAtPos}", null)
-            bd.close()
-            if (cant == 1)
-                Toast.makeText(this, "Se borró el artículo con dicho código", Toast.LENGTH_SHORT).show()
-            else
-                Toast.makeText(this, "No existe un artículo con dicho código", Toast.LENGTH_SHORT).show()
-            */
+            // id plus 1 because the db ids starts with 1
+            val parameter = itemIdAtPos + 1
+            Toast.makeText(this, "Click on item at  its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
         }
 
         // ACTIVITIES
@@ -111,14 +96,6 @@ class MainActivity : AppCompatActivity() {
             val intento1 = Intent(this, Agregar::class.java)
             startActivity(intento1)
         }
-
-        // edit activity
-        btnEdit.setOnClickListener {
-            val intento2 = Intent(this, EditarActivity::class.java)
-            startActivity(intento2)
-        }
-
-
 
     }
 }
