@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_agregar.*
 import kotlinx.android.synthetic.main.activity_editar.*
 import kotlinx.android.synthetic.main.activity_editar.txtCost
 import kotlinx.android.synthetic.main.activity_editar.txtDescription
@@ -119,7 +118,21 @@ class EditarActivity : AppCompatActivity() {
             }
         }
 
-        // cancel the edit
+
+        // delete database register
+        btnDelete.setOnClickListener{
+            val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
+            val bd = admin.writableDatabase
+
+                bd.execSQL("DELETE FROM productos WHERE id =${id} LIMIT 1")
+                Toast.makeText(this, "Registro eliminado", Toast.LENGTH_LONG).show()
+
+            val intento10 = Intent(this, MainActivity::class.java)
+            startActivity(intento10)
+            
+        }
+
+        // return to activityMain
         btnReturn.setOnClickListener {
             val intento4 = Intent(this, MainActivity::class.java)
             startActivity(intento4)

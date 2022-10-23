@@ -1,9 +1,13 @@
 package com.example.examen
 
 import android.content.Intent
+import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -85,6 +89,13 @@ class MainActivity : AppCompatActivity() {
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
             // id plus 1 because the db ids starts with 1
+
+            val parameter = itemIdAtPos + 1
+           Toast.makeText(this, "El id es: $itemIdAtPos", Toast.LENGTH_LONG).show()
+
+            val intento8 = Intent(this, EditarActivity::class.java)
+            startActivity(intento8)
+
             val parameter = itemIdAtPos.toInt() + 1
             println("ID SENDED: ${parameter}")
 
@@ -93,6 +104,10 @@ class MainActivity : AppCompatActivity() {
             intento1.putExtra("id", parameter)
             startActivity(intento1)
         }
+
+
+
+
 
         // ACTIVITIES
 
@@ -104,3 +119,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
+
+
