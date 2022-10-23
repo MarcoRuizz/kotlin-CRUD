@@ -49,4 +49,3 @@ class Adapter(private val context: Activity, private val nombre: Array<String>, 
 private fun ImageView.setImageResource(s: String) {
 
 }
-

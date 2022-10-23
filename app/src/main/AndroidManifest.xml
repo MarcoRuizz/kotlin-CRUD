@@ -22,13 +22,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".DbProductos"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Adapter"
             android:exported="false">
             <meta-data
@@ -37,13 +30,6 @@
         </activity>
         <activity
             android:name=".EditarActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Editar"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
