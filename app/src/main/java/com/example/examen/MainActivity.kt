@@ -87,6 +87,8 @@ class MainActivity : AppCompatActivity() {
             // id plus 1 because the db ids starts with 1
             val parameter = itemIdAtPos + 1
             Toast.makeText(this, "Click on item at  its item id $parameter", Toast.LENGTH_LONG).show()
+
+            // updated
         }
 
         // ACTIVITIES
