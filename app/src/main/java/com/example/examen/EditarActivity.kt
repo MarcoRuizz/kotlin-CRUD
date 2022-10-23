@@ -14,10 +14,13 @@ import kotlinx.android.synthetic.main.activity_editar.txtSale
 import kotlinx.android.synthetic.main.activity_editar.txtUrl
 
 class EditarActivity : AppCompatActivity() {
-    var id = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar)
+
+        val bundle = intent.extras
+        var id = bundle?.getInt("id")
+        println("ID received ${id}")
 
         /*
         // delete database register
@@ -38,6 +41,7 @@ class EditarActivity : AppCompatActivity() {
         }
         */
 
+        /*
         btnSearch.setOnClickListener{
 
             // read by name
@@ -81,6 +85,8 @@ class EditarActivity : AppCompatActivity() {
                 Toast.makeText(this, "No existe ese producto",  Toast.LENGTH_LONG).show()
             bd.close()
         }
+
+         */
 
         btnChange.setOnClickListener {
 
