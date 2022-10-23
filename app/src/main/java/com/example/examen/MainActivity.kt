@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             val parameter = itemIdAtPos + 1
             Toast.makeText(this, "Click on item at  its item id $parameter", Toast.LENGTH_LONG).show()
 
-            // updated
+            // updateds
         }
 
         // ACTIVITIES
