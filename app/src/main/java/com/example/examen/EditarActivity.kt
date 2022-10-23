@@ -194,11 +194,11 @@ class EditarActivity : AppCompatActivity() {
             startActivity(intento11)
         }
 
-        /*
+
         // return to activityMain
         btnReturn.setOnClickListener {
             val intento4 = Intent(this, MainActivity::class.java)
             startActivity(intento4)
-        }*/
+        }
     }
 }
