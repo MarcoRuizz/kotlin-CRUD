@@ -67,24 +67,6 @@ class MainActivity : AppCompatActivity() {
             i++
         }
 
-        /*
-        if(fila.moveToFirst()){
-            println(fila.getString(0))
-            println(fila.getString(1))
-            println(fila.getString(2))
-            println(fila.getString(3))
-            println(fila.getString(4))
-            println(fila.getString(5))
-
-            nombre.plusElement(fila.getString(0))
-            descripcion.plusElement(fila.getString(1))
-            existencia.plusElement(fila.getInt(2))
-            costoProducto.plusElement(fila.getFloat(3))
-            venta.plusElement(fila.getFloat(4))
-            imageID.plusElement(fila.getString(5))
-        }
-         */
-
         bd.close()
         println("ARRAYS DATA:")
         println(Arrays.toString(nombre))
