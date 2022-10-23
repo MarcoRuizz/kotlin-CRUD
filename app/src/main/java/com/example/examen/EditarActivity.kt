@@ -20,8 +20,23 @@ class EditarActivity : AppCompatActivity() {
 
         val bundle = intent.extras
         var id = bundle?.getInt("id")
-        println("ID received ${id}")
+        println(id)
+        //println("ID received ${id}")
 
+        val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
+        val bd = admin.writableDatabase
+        val registro = bd.rawQuery("select nombre, descripcion,existentes,precioCosto,precioVenta,url from productos where id=${id}" , null)
+        if (registro.moveToFirst()) {
+            txtName.setText(registro.getString(0))
+            txtDescription.setText(registro.getString(1))
+            txtExisting.setText(registro.getString(2))
+            txtCost.setText(registro.getString(3))
+            txtSale.setText(registro.getString(4))
+            txtUrl.setText(registro.getString(5))
+
+        }
+
+        bd.close()
         /*
         // delete database register
         btnDelete.setOnClickListener{
@@ -89,31 +104,71 @@ class EditarActivity : AppCompatActivity() {
 
         btnChange.setOnClickListener {
 
-            val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
-            val bd = admin.writableDatabase
-            val registro = ContentValues()
-            registro.put("id", id)
-            println(id)
-            registro.put("nombre", txtName.text.toString())
-            registro.put("descripcion", txtDescription.text.toString())
-            registro.put("existentes", txtExisting.text.toString())
-            registro.put("precioCosto", txtCost.text.toString())
-            registro.put("precioVenta", txtSale.text.toString())
-            registro.put("url", txtUrl.text.toString())
-            val cant = bd.update("productos", registro, "id=${id}", null)
-            bd.close()
-            if (cant == 1){
-                Toast.makeText(this, "se modificaron los datos", Toast.LENGTH_LONG).show()
+            var nombre = txtName.getText().toString()
+            var descripcion = txtDescription.getText().toString()
+            var existentes = txtExisting.getText().toString()
+            var precioCosto = txtCost.getText().toString()
+            var precioVenta = txtSale.getText().toString()
+            var url = txtUrl.getText().toString()
 
-                // clear inputs after modifying the db
-                txtName.setText("")
-                txtDescription.setText("")
-                txtExisting.setText("")
-                txtCost.setText("")
-                txtSale.setText("")
-                txtUrl.setText("")
+            if (nombre == "") {
+                Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "no se actualizaron los datos", Toast.LENGTH_LONG).show()
+                if (descripcion == "") {
+                    Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
+                } else {
+                    if (existentes == "") {
+                        Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
+                    } else {
+                        if (precioCosto == "") {
+                            Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
+                        } else {
+                            if (precioVenta == "") {
+                                Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
+                            } else {
+
+                                if (url == "") {
+                                    Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
+                                } else {
+                                    val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
+                                    val bd = admin.writableDatabase
+                                    val registro = ContentValues()
+                                    registro.put("id", id)
+                                    println(id)
+                                    registro.put("nombre", txtName.text.toString())
+                                    registro.put("descripcion", txtDescription.text.toString())
+                                    registro.put("existentes", txtExisting.text.toString())
+                                    registro.put("precioCosto", txtCost.text.toString())
+                                    registro.put("precioVenta", txtSale.text.toString())
+                                    registro.put("url", txtUrl.text.toString())
+                                    val cant = bd.update("productos", registro, "id=${id}", null)
+                                    bd.close()
+                                    if (cant == 1) {
+                                        Toast.makeText(
+                                            this,
+                                            "se modificaron los datos",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+
+                                        // clear inputs after modifying the db
+                                        txtName.setText("")
+                                        txtDescription.setText("")
+                                        txtExisting.setText("")
+                                        txtCost.setText("")
+                                        txtSale.setText("")
+                                        txtUrl.setText("")
+                                    } else {
+                                        Toast.makeText(
+                                            this,
+                                            "no se actualizaron los datos",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -121,14 +176,19 @@ class EditarActivity : AppCompatActivity() {
         // delete database register
         btnDelete.setOnClickListener{
             val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
-            /*val bd = admin.writableDatabase
+            val bd = admin.writableDatabase
+            val cant = bd.delete("productos", "id=${id}", null)
+            bd.close()
+            txtName.setText("")
+            txtDescription.setText("")
+            txtExisting.setText("")
+            txtCost.setText("")
+            txtSale.setText("")
+            txtUrl.setText("")
 
-                bd.execSQL("DELETE FROM productos WHERE id =${id} LIMIT 1")
-                Toast.makeText(this, "Registro eliminado", Toast.LENGTH_LONG).show()
+            if (cant == 1)
+                Toast.makeText(this, "Product deleted", Toast.LENGTH_SHORT).show()
 
-            val intento10 = Intent(this, MainActivity::class.java)
-            startActivity(intento10)*/
-            
         }
 
         // return to activityMain
