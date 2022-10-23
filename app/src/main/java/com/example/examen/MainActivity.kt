@@ -8,7 +8,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_splash.*
 import java.util.*
 
 // create arrays
@@ -65,7 +67,6 @@ class MainActivity : AppCompatActivity() {
                 costoProducto += (saveNames.getFloat(3))
                 venta += (saveNames.getFloat(4))
                 imageID += (saveNames.getString(5))
-
             }
 
             i++
@@ -79,6 +80,13 @@ class MainActivity : AppCompatActivity() {
         println(Arrays.toString(costoProducto))
         println(Arrays.toString(venta))
         println(Arrays.toString(imageID))
+
+        /* add imageid
+        for (x in imageID) {
+        Glide.with(this)
+            .load(x)
+            .into(imageView5)
+        } */
 
         // print database listview
         val myListAdapter = Adapter(this, nombre,descripcion, existencia, costoProducto, venta, imageID)
@@ -97,10 +105,6 @@ class MainActivity : AppCompatActivity() {
             intento1.putExtra("id", parameter)
             startActivity(intento1)
         }
-
-
-
-
 
         // ACTIVITIES
 
