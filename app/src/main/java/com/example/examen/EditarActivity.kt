@@ -56,7 +56,7 @@ class EditarActivity : AppCompatActivity() {
         }
         */
 
-        //
+        /*
         btnSearch.setOnClickListener{
 
             // read by name
@@ -99,7 +99,7 @@ class EditarActivity : AppCompatActivity() {
             } else
                 Toast.makeText(this, "No existe ese producto",  Toast.LENGTH_LONG).show()
             bd.close()
-        }
+        }*/
          //
 
         btnChange.setOnClickListener {
@@ -163,6 +163,8 @@ class EditarActivity : AppCompatActivity() {
                                             Toast.LENGTH_LONG
                                         ).show()
                                     }
+                                    val intento12 = Intent(this, MainActivity::class.java)
+                                    startActivity(intento12)
                                 }
                             }
                         }
@@ -188,12 +190,15 @@ class EditarActivity : AppCompatActivity() {
             if (cant == 1)
                 Toast.makeText(this, "Product deleted", Toast.LENGTH_SHORT).show()
 
+            val intento11 = Intent(this, MainActivity::class.java)
+            startActivity(intento11)
         }
 
+        /*
         // return to activityMain
         btnReturn.setOnClickListener {
             val intento4 = Intent(this, MainActivity::class.java)
             startActivity(intento4)
-        }
+        }*/
     }
 }
