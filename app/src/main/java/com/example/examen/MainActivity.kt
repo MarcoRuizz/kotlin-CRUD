@@ -89,9 +89,6 @@ class MainActivity : AppCompatActivity() {
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
             // id plus 1 because the db ids starts with 1
-            val intento8 = Intent(this, EditarActivity::class.java)
-            startActivity(intento8)
-
             val parameter = itemIdAtPos.toInt() + 1
             println("ID SENDED: ${parameter}")
 

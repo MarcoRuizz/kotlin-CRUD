@@ -122,13 +122,13 @@ class EditarActivity : AppCompatActivity() {
         // delete database register
         btnDelete.setOnClickListener{
             val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
-            val bd = admin.writableDatabase
+            /*val bd = admin.writableDatabase
 
                 bd.execSQL("DELETE FROM productos WHERE id =${id} LIMIT 1")
                 Toast.makeText(this, "Registro eliminado", Toast.LENGTH_LONG).show()
 
             val intento10 = Intent(this, MainActivity::class.java)
-            startActivity(intento10)
+            startActivity(intento10)*/
             
         }
 
