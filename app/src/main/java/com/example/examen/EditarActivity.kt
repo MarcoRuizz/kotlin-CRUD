@@ -126,7 +126,6 @@ class EditarActivity : AppCompatActivity() {
                             if (precioVenta == "") {
                                 Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
                             } else {
-
                                 if (url == "") {
                                     Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
                                 } else {

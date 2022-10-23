@@ -96,6 +96,7 @@ class Agregar : AppCompatActivity() {
         }
 */
 
+
         /*// TEST / delete after
         btnReadName.setOnClickListener{
 
