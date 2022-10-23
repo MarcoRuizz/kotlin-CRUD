@@ -89,10 +89,6 @@ class MainActivity : AppCompatActivity() {
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
             // id plus 1 because the db ids starts with 1
-
-            val parameter = itemIdAtPos + 1
-           Toast.makeText(this, "El id es: $itemIdAtPos", Toast.LENGTH_LONG).show()
-
             val intento8 = Intent(this, EditarActivity::class.java)
             startActivity(intento8)
 
