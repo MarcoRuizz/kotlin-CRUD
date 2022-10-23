@@ -32,6 +32,7 @@ class Adapter(private val context: Activity, private val imageID: Array<String>,
 
         return rowView
     }
+
 }
 
 private fun ImageView.setImageResource(s: String) {

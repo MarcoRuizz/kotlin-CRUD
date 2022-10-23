@@ -44,6 +44,9 @@ class Agregar : AppCompatActivity() {
 
             // send notification and finish the activity
             Toast.makeText(this, "Se cargaron los datos", Toast.LENGTH_LONG).show()
+
+            val intento7 = Intent(this, MainActivity::class.java)
+            startActivity(intento7)
         }
 
         //regresa a la activity principal
