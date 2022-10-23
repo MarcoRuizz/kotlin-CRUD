@@ -41,7 +41,7 @@ class EditarActivity : AppCompatActivity() {
         }
         */
 
-        /*
+        //
         btnSearch.setOnClickListener{
 
             // read by name
@@ -85,8 +85,7 @@ class EditarActivity : AppCompatActivity() {
                 Toast.makeText(this, "No existe ese producto",  Toast.LENGTH_LONG).show()
             bd.close()
         }
-
-         */
+         //
 
         btnChange.setOnClickListener {
 
