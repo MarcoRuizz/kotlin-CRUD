@@ -6,18 +6,18 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
-// create arrays
-var nombre = arrayOf<String>()
-var descripcion = arrayOf<String>()
-var existencia = arrayOf<Int>()
-var costoProducto = arrayOf<Float>()
-var venta = arrayOf<Float>()
-var imageID = arrayOf<String>()
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // create arrays
+        var nombre = arrayOf<String>()
+        var descripcion = arrayOf<String>()
+        var existencia = arrayOf<Int>()
+        var costoProducto = arrayOf<Float>()
+        var venta = arrayOf<Float>()
+        var imageID = arrayOf<String>()
 
         // get data base
         val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             println()
             println("${countRegister.getString(0)} registros")
         }
-        val counter = countRegister.getString(0).toInt()
+        val counter = countRegister.getString(0).toInt() + 1
 
         // save all registers
         var i = 1;
@@ -45,13 +45,15 @@ class MainActivity : AppCompatActivity() {
             if(saveNames.moveToFirst()){
 
                 // debug
-                println("Registro ${i}")
-                println(saveNames.getString(0))
-                println(saveNames.getString(1))
-                println(saveNames.getInt(2))
-                println(saveNames.getFloat(3))
-                println(saveNames.getFloat(4))
-                println(saveNames.getString(5))
+                println(
+                    "Registro ${i}: " +
+                            "${saveNames.getString(0)}, " +
+                            "${saveNames.getString(1)}, " +
+                            "${saveNames.getInt(2)}, " +
+                            "${saveNames.getFloat(3)}, " +
+                            "${saveNames.getFloat(4)}, " +
+                            "${saveNames.getString(5)}",
+                )
 
                 // add to array
                 nombre += (saveNames.getString(0))
