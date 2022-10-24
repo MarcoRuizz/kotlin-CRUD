@@ -3,8 +3,6 @@ package com.example.examen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_editar.view.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -87,10 +85,6 @@ class MainActivity : AppCompatActivity() {
         listView.setOnItemClickListener(){adapterView, view, position, id ->
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
-            // get text string from the item clicked
-            // val item = ;
-            //println("LISTVIEW: ${}")
-
             // id plus 1 because the db ids starts with 1
             val parameter = itemIdAtPos.toInt() + 1
             println("ID SENDED: ${parameter}")
@@ -101,14 +95,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intento1)
         }
 
-        // ACTIVITIES
-
         // add acivitiy
         btnAdd.setOnClickListener {
             val intento1 = Intent(this, Agregar::class.java)
             startActivity(intento1)
         }
-
     }
 }
 
