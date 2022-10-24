@@ -229,6 +229,8 @@
         android:layout_height="0dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/redondeadoverde"
         android:backgroundTint="#8DEF84"
         android:text="EDIT"
         android:textColor="#3F6820"
@@ -243,6 +245,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
+        android:background="@drawable/redondeado"
         android:backgroundTint="#C35454"
         android:text="DELETE"
         android:textColor="#810C0C"
@@ -256,7 +259,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="15dp"
+        android:background="@drawable/redondeadazul"
         android:backgroundTint="#5966AC"
         android:text="BACK"
         android:textColor="#121D5A"
@@ -264,5 +269,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="89dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="72dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sams_splash" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
