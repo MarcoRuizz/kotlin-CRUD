@@ -12,6 +12,5 @@ class AdminSQLiteOpenHelper(context: Context, name: String, factory: CursorFacto
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-
     }
 }

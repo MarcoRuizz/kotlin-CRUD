@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.activity_agregar.txtExisting
 import kotlinx.android.synthetic.main.activity_agregar.txtName
 import kotlinx.android.synthetic.main.activity_agregar.txtSale
 import kotlinx.android.synthetic.main.activity_agregar.txtUrl
-import kotlinx.android.synthetic.main.activity_editar.*
 
 class Agregar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +43,6 @@ class Agregar : AppCompatActivity() {
                             if (precioVenta == "") {
                                 Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
                             } else {
-
                                 if (url == "") {
                                     Toast.makeText(this, "empty field", Toast.LENGTH_SHORT).show()
                                 } else {
@@ -88,6 +86,5 @@ class Agregar : AppCompatActivity() {
             val intento5 = Intent(this, MainActivity::class.java)
             startActivity(intento5)
         }
-
     }
 }
