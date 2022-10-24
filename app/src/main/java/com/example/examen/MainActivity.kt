@@ -1,9 +1,8 @@
 package com.example.examen
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_editar.view.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -88,16 +87,18 @@ class MainActivity : AppCompatActivity() {
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
             // get text string from the item clicked
-            // val item = ;
-            //println("LISTVIEW: ${}")
+            val item = adapterView.getItemAtPosition(position) as String
+            println("LISTVIEW: ${item}")
 
+            /*
             // id plus 1 because the db ids starts with 1
             val parameter = itemIdAtPos.toInt() + 1
             println("ID SENDED: ${parameter}")
+            */
 
             // send the parameter to edit activity
             val intento1 = Intent(this, EditarActivity::class.java)
-            intento1.putExtra("id", parameter)
+            intento1.putExtra("nameLV", item)
             startActivity(intento1)
         }
 

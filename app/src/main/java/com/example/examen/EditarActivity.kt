@@ -19,12 +19,20 @@ class EditarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_editar)
 
         val bundle = intent.extras
-        var id = bundle?.getInt("id")
-        println(id)
-        //println("ID received ${id}")
+        var name = bundle?.getString("nameLV")
+        println("Name received ${name}")
+        var id = 0;
 
+        // get the id of the product name recieved
         val admin = AdminSQLiteOpenHelper(this, "products", null, 1)
         val bd = admin.writableDatabase
+        val countRegister = bd.rawQuery("select id from productos where nombre = '${name}'", null)
+        if (countRegister.moveToFirst()){
+            println("PRODUCT ID: ${countRegister.getString(0)}")
+             id = countRegister.getString(0).toInt()
+        }
+
+        println("ID PRODUCT TO LOAD: ${id}")
         val registro = bd.rawQuery("select nombre, descripcion,existentes,precioCosto,precioVenta,url from productos where id=${id}" , null)
         if (registro.moveToFirst()) {
             txtName.setText(registro.getString(0))
@@ -33,7 +41,6 @@ class EditarActivity : AppCompatActivity() {
             txtCost.setText(registro.getString(3))
             txtSale.setText(registro.getString(4))
             txtUrl.setText(registro.getString(5))
-
         }
 
         bd.close()
