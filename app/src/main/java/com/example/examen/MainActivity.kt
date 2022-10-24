@@ -3,6 +3,8 @@ package com.example.examen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_editar.view.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -41,30 +43,31 @@ class MainActivity : AppCompatActivity() {
         while(i <= counter){
 
             // names
-            val saveNames = bd.rawQuery("select nombre, descripcion, existentes, precioCosto, precioVenta, url from productos where id =' ${i}'", null)
+            val saveNames = bd.rawQuery("select id, nombre, descripcion, existentes, precioCosto, precioVenta, url from productos where id =' ${i}'", null)
             if(saveNames.moveToFirst()){
 
                 // debug
                 println(
                     "Registro ${i}: " +
-                            "${saveNames.getString(0)}, " +
+                            "${saveNames.getInt(0)}, " +
                             "${saveNames.getString(1)}, " +
-                            "${saveNames.getInt(2)}, " +
-                            "${saveNames.getFloat(3)}, " +
+                            "${saveNames.getString(2)}, " +
+                            "${saveNames.getInt(3)}, " +
                             "${saveNames.getFloat(4)}, " +
-                            "${saveNames.getString(5)}",
+                            "${saveNames.getFloat(5)}, " +
+                            "${saveNames.getString(6)}",
                 )
 
                 // add to array
-                nombre += (saveNames.getString(0))
-                descripcion += (saveNames.getString(1))
-                existencia += (saveNames.getInt(2))
-                costoProducto += (saveNames.getFloat(3))
-                venta += (saveNames.getFloat(4))
-                imageID += (saveNames.getString(5))
+                nombre += (saveNames.getString(1))
+                descripcion += (saveNames.getString(2))
+                existencia += (saveNames.getInt(3))
+                costoProducto += (saveNames.getFloat(4))
+                venta += (saveNames.getFloat(5))
+                imageID += (saveNames.getString(6))
             }
 
-            i++
+            i += 1
         }
 
         bd.close()
@@ -76,13 +79,6 @@ class MainActivity : AppCompatActivity() {
         println(Arrays.toString(venta))
         println(Arrays.toString(imageID))
 
-        /* add imageid
-        for (x in imageID) {
-        Glide.with(this)
-            .load(x)
-            .into(imageView5)
-        } */
-
         // print database listview
         val myListAdapter = Adapter(this, nombre,descripcion, existencia, costoProducto, venta, imageID)
         listView.adapter = myListAdapter
@@ -90,6 +86,10 @@ class MainActivity : AppCompatActivity() {
         // listview on click event, send to another activity and send the id parameter
         listView.setOnItemClickListener(){adapterView, view, position, id ->
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
+
+            // get text string from the item clicked
+            // val item = ;
+            //println("LISTVIEW: ${}")
 
             // id plus 1 because the db ids starts with 1
             val parameter = itemIdAtPos.toInt() + 1
