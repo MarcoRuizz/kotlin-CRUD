@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".entidades.MainActivity">
+    tools:context="MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
@@ -62,8 +62,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="Sam's Club"
         android:textAlignment="center"
         android:textColor="#090909"
@@ -79,18 +78,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="348dp" />
+        app:layout_constraintGuide_begin="339dp" />
 
     <ImageButton
         android:id="@+id/btnAdd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="73dp"
         android:layout_marginEnd="15dp"
-        android:backgroundTint="#FDFDFD"
+        android:backgroundTint="#FFFFFF"
+        android:src="@drawable/flotante"
         app:layout_constraintBottom_toTopOf="@+id/guideline15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
-        app:layout_constraintTop_toTopOf="@+id/guideline14"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
