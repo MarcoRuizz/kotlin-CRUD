@@ -33,7 +33,6 @@ class EditarActivity : AppCompatActivity() {
             txtCost.setText(registro.getString(3))
             txtSale.setText(registro.getString(4))
             txtUrl.setText(registro.getString(5))
-
         }
 
         bd.close()

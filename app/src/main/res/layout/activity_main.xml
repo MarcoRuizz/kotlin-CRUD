@@ -21,7 +21,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="92dp" />
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline16"
         android:layout_width="wrap_content"
@@ -91,5 +90,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

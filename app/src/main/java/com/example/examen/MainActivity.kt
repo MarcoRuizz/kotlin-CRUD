@@ -3,8 +3,6 @@ package com.example.examen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_editar.view.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -101,14 +99,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intento1)
         }
 
-        // ACTIVITIES
-
         // add acivitiy
         btnAdd.setOnClickListener {
             val intento1 = Intent(this, Agregar::class.java)
             startActivity(intento1)
         }
-
     }
 }
 
