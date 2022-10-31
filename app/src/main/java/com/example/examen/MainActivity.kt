@@ -1,9 +1,8 @@
 package com.example.examen
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_editar.view.*
+import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -108,18 +107,15 @@ class MainActivity : AppCompatActivity() {
 
             // send the parameter to edit activity
             val intento1 = Intent(this, EditarActivity::class.java)
-            intento1.putExtra("nameLV", item)
+            intento1.putExtra("id", parameter)
             startActivity(intento1)
         }
-
-        // ACTIVITIES
 
         // add acivitiy
         btnAdd.setOnClickListener {
             val intento1 = Intent(this, Agregar::class.java)
             startActivity(intento1)
         }
-
     }
 }
 

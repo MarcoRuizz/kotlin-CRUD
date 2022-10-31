@@ -42,11 +42,9 @@ class EditarActivity : AppCompatActivity() {
             txtSale.setText(registro.getString(4))
             txtUrl.setText(registro.getString(5))
         }
-
         bd.close()
 
         btnChange.setOnClickListener {
-
             var nombre = txtName.getText().toString()
             var descripcion = txtDescription.getText().toString()
             var existentes = txtExisting.getText().toString()

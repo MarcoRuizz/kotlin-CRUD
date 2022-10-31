@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_main.*
 
 class Adapter(private val context: Activity, private val nombre: Array<String>, private val descripcion: Array<String>, private val existencia: Array<Int>, private val costoProducto: Array<Float>, private val venta: Array<Float>, private val imageID: Array<String>)
     : ArrayAdapter<String>(context, R.layout.custom_list, nombre) {
@@ -25,7 +24,6 @@ class Adapter(private val context: Activity, private val nombre: Array<String>, 
         val imageView = rowView.findViewById(R.id.imageID) as ImageView
 
         titleText.text = nombre[position]
-        //imageView.setImageResource(imageID[position])
 
         // debug
         println("URL: ${imageID[position]}")
@@ -40,12 +38,9 @@ class Adapter(private val context: Activity, private val nombre: Array<String>, 
         existeText.text = (existencia[position].toString())
         costText.text = (costoProducto[position].toString())
         ventaText.text = (venta[position].toString())
-
         return rowView
     }
-
 }
 
 private fun ImageView.setImageResource(s: String) {
-
 }
