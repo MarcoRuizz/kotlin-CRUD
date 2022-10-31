@@ -35,11 +35,27 @@ class MainActivity : AppCompatActivity() {
             println()
             println("${countRegister.getString(0)} registros")
         }
-        val counter = countRegister.getString(0).toInt() + 1
+
+        // will be used on the while to save all the registers to the arrays
+        var lastID = 1;
+
+        // get the last id from the database
+        val lastROW =  bd.rawQuery("select * from SQLITE_SEQUENCE", null)
+        if(lastROW.moveToFirst()){
+            // print the sql query
+            println("LASTROW: ${lastROW.getString(0)}")
+            println("LASTROW: ${lastROW.getString(1)}")
+
+            // save the last id
+            lastID = lastROW.getString(1).toInt()
+            println("LASTID: ${lastID}")
+        }
 
         // save all registers
         var i = 1;
-        while(i <= counter){
+        while(i <= lastID){
+            // debug
+            println("counter: ${i} / lastID: ${lastID}")
 
             // names
             val saveNames = bd.rawQuery("select id, nombre, descripcion, existentes, precioCosto, precioVenta, url from productos where id =' ${i}'", null)
@@ -89,12 +105,6 @@ class MainActivity : AppCompatActivity() {
             // get text string from the item clicked
             val item = adapterView.getItemAtPosition(position) as String
             println("LISTVIEW: ${item}")
-
-            /*
-            // id plus 1 because the db ids starts with 1
-            val parameter = itemIdAtPos.toInt() + 1
-            println("ID SENDED: ${parameter}")
-            */
 
             // send the parameter to edit activity
             val intento1 = Intent(this, EditarActivity::class.java)
